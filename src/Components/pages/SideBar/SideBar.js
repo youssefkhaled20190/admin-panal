@@ -1,48 +1,71 @@
-import SidebarMenu from 'react-bootstrap-sidebar-menu';
+import React, { useState } from 'react';
+import {
+    FaTh,
+    FaBars,
+    FaUserAlt,
+    FaRegChartBar,
+    FaCommentAlt,
+    FaShoppingBag,
+    FaThList
+}from "react-icons/fa";
+import { NavLink } from 'react-router-dom';
 
-const SideBar = () => {
+
+const SideBar = ({children}) => {
+    const[isOpen ,setIsOpen] = useState(false);
+    const toggle = () => setIsOpen (!isOpen);
+    const menuItem=[
+        {
+            path:"/",
+            name:"Dashboard",
+            icon:<FaTh/>
+        },
+        {
+            path:"/about",
+            name:"About",
+            icon:<FaUserAlt/>
+        },
+        {
+            path:"/analytics",
+            name:"Analytics",
+            icon:<FaRegChartBar/>
+        },
+        {
+            path:"/comment",
+            name:"Comment",
+            icon:<FaCommentAlt/>
+        },
+        {
+            path:"/product",
+            name:"Product",
+            icon:<FaShoppingBag/>
+        },
+        {
+            path:"/productList",
+            name:"Product List",
+            icon:<FaThList/>
+        }
+    ]
     return (
-        <SidebarMenu>
-            <SidebarMenu.Header>
-                <SidebarMenu.Brand>
-                    {/* Your brand icon */}
-                </SidebarMenu.Brand>
-                <SidebarMenu.Toggle />
-            </SidebarMenu.Header>
-            <SidebarMenu.Body>
-                <SidebarMenu.Nav>
-                    <SidebarMenu.Nav.Link>
-                        <SidebarMenu.Nav.Icon>
-                            {/* Menu item icon */}
-                        </SidebarMenu.Nav.Icon>
-                        <SidebarMenu.Nav.Title>
-                            {/* Menu item title */}
-                        </SidebarMenu.Nav.Title>
-                    </SidebarMenu.Nav.Link>
-
-                    <SidebarMenu.Sub>
-                        <SidebarMenu.Sub.Toggle>
-                            <SidebarMenu.Nav.Icon />
-                            <SidebarMenu.Nav.Title>
-                                {/* Submenu title */}
-                            </SidebarMenu.Nav.Title>
-                        </SidebarMenu.Sub.Toggle>
-                        <SidebarMenu.Sub.Collapse>
-                            <SidebarMenu.Nav>
-                                <SidebarMenu.Nav.Link>
-                                    <SidebarMenu.Nav.Icon>
-                                        {/* Submenu item icon */}
-                                    </SidebarMenu.Nav.Icon>
-                                    <SidebarMenu.Nav.Title>
-                                        {/* Submenu item title */}
-                                    </SidebarMenu.Nav.Title>
-                                </SidebarMenu.Nav.Link>
-                            </SidebarMenu.Nav>
-                        </SidebarMenu.Sub.Collapse>
-                    </SidebarMenu.Sub>
-                </SidebarMenu.Nav>
-            </SidebarMenu.Body>
-        </SidebarMenu>
+        <div className="container">
+           <div style={{width: isOpen ? "200px" : "50px"}} className="sidebar">
+               <div className="top_section">
+                   <h1 style={{display: isOpen ? "block" : "none"}} className="logo">Logo</h1>
+                   <div style={{marginLeft: isOpen ? "50px" : "0px"}} className="bars">
+                       <FaBars onClick={toggle}/>
+                   </div>
+               </div>
+               {
+                   menuItem.map((item, index)=>(
+                       <NavLink to={item.path} key={index} className="link" activeclassName="active">
+                           <div className="icon">{item.icon}</div>
+                           <div style={{display: isOpen ? "block" : "none"}} className="link_text">{item.name}</div>
+                       </NavLink>
+                   ))
+               }
+           </div>
+           <main>{children}</main>
+        </div>
     );
 };
 

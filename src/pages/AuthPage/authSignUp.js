@@ -62,7 +62,7 @@ const Signup = () => {
   });
 
   return (
-    <form className="sign-up-form" onSubmit={formik.handleSubmit}>
+    <form className="auth-form sign-up-form" onSubmit={formik.handleSubmit}>
       <h2 className="title">Sign up</h2>
       
       {/* Email Input */}

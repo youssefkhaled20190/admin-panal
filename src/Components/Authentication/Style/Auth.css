@@ -1,0 +1,28 @@
+/* AuthenticatedLayout.css */
+
+.authenticated-layout {
+    display: flex; /* Use flexbox to align sidebar and main content */
+    height: 100vh; /* Full height for the layout */
+}
+
+main {
+    flex-grow: 1; /* Allow main content to take the remaining width */
+    padding: 20px; /* Spacing around the main content */
+    background-color: #f8f9fa; /* Light background for contrast */
+}
+
+/* Optionally, you can add some responsiveness */
+@media (max-width: 768px) {
+    .authenticated-layout {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+    }
+    
+    .sidebar {
+        width: 100%; /* Full width for sidebar on mobile */
+        height: auto; /* Allow sidebar height to adjust */
+    }
+
+    main {
+        padding: 10px; /* Less padding on mobile */
+    }
+}

@@ -8,7 +8,12 @@ import {
     FaShoppingBag,
     FaThList
 }from "react-icons/fa";
+
+import { RiDashboardHorizontalFill } from "react-icons/ri";
+import { MdCategory } from "react-icons/md";
+
 import { NavLink } from 'react-router-dom';
+import "./style/SideBar.css"
 
 
 const SideBar = ({children}) => {
@@ -18,36 +23,23 @@ const SideBar = ({children}) => {
         {
             path:"/",
             name:"Dashboard",
-            icon:<FaTh/>
+            icon:<RiDashboardHorizontalFill />
+
         },
         {
-            path:"/about",
-            name:"About",
-            icon:<FaUserAlt/>
-        },
-        {
-            path:"/analytics",
-            name:"Analytics",
-            icon:<FaRegChartBar/>
-        },
-        {
-            path:"/comment",
-            name:"Comment",
-            icon:<FaCommentAlt/>
-        },
-        {
-            path:"/product",
+            path:"/products",
             name:"Product",
             icon:<FaShoppingBag/>
         },
         {
-            path:"/productList",
-            name:"Product List",
-            icon:<FaThList/>
+            path:"/Catgories",
+            name:"Categories",
+            icon:<MdCategory />
         }
+
     ]
     return (
-        <div className="container">
+        <div className="SidebarContainer">
            <div style={{width: isOpen ? "200px" : "50px"}} className="sidebar">
                <div className="top_section">
                    <h1 style={{display: isOpen ? "block" : "none"}} className="logo">Logo</h1>

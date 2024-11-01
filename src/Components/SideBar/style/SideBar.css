@@ -1,0 +1,92 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Include padding and border in element's total width/height */
+}
+
+/* Container for sidebar and main content */
+.SidebarContainer {
+    display: flex; /* Flexbox layout for side-by-side */
+ /* Full height of the viewport */
+}
+
+/* Main content area */
+main {
+    flex-grow: 1; /* Allow the main content to grow and fill available space */
+    padding: 20px;
+    background-color: #f8f9fa; /* Light background for contrast */
+    overflow-y: auto; /* Enable vertical scrolling if needed */
+}
+
+/* Sidebar styling */
+.sidebar {
+    background: linear-gradient(#b92b27, #1565C0); /* Gradient background */
+    color: #fff;
+    height: 100vh; /* Full height */
+    width: 200px; /* Fixed width for sidebar */
+    transition: width 0.5s; /* Smooth transition for width changes */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+}
+
+/* Top section styling */
+.top_section {
+    display: flex;
+    align-items: center;
+    padding: 20px 15px;
+}
+
+/* Logo styles */
+.logo {
+    font-size: 30px;
+    font-weight: bold; /* Make logo text bold */
+}
+
+/* Icon styles */
+.bars {
+    display: flex;
+    font-size: 25px;
+    margin-left: auto; /* Align the bars icon to the right */
+    cursor: pointer; /* Show pointer cursor for interactivity */
+}
+
+/* Link styles */
+.link {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    color: #fff;
+    padding: 10px 15px;
+    gap: 15px;
+    transition: background 0.3s, color 0.3s; /* Smooth transition */
+    text-decoration: none;
+}
+
+/* Link hover effect */
+.link:hover {
+    background: lightskyblue;
+    color: #000;
+}
+
+/* Active link styling */
+.active {
+    background: linear-gradient(#ffffff38, #2c3e50);
+    color: #000;
+}
+
+/* Icon and text styles */
+.icon, .link_text {
+    font-size: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 60px; /* Collapsed width for mobile */
+    }
+    .link_text {
+        display: none; /* Hide text in mobile view */
+    }
+    .sidebar:hover {
+        width: 200px; /* Expand on hover for more usability */
+    }
+}

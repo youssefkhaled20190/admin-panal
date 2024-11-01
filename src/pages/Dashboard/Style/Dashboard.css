@@ -1,0 +1,21 @@
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 0;
+  }
+  
+  .pagination li {
+    display: inline;
+    padding: 0 10px;
+  }
+  
+  .pagination li a {
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .pagination .active a {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  

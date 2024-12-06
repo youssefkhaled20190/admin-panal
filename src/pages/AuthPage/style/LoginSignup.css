@@ -1,4 +1,4 @@
-/* Common styles */
+/* Common styles
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 * {
@@ -235,7 +235,7 @@ input {
 
 /* ANIMATION */
 
-.container.sign-up-mode:before {
+/* .container.sign-up-mode:before {
   transform: translate(100%, -50%);
   right: 52%;
 }
@@ -373,4 +373,11 @@ input {
     top: 5%;
     transform: translate(-50%, 0);
   }
+} */ 
+
+.background {
+  background-image: url('../../../Assets/imgs/5185208.jpg');
+  background-size: cover;
+  background-position: center;
+  /* Add any other background styles you desire */
 }

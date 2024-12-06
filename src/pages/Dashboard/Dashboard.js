@@ -4,6 +4,8 @@ import ReactPaginate from "react-paginate";
 import "./Style/Dashboard.css"
 
 import { Table, Card, CardHeader, CardBody , Button  } from "reactstrap";
+import BarColumnChart from "../../Components/Charts/BarCart";
+import DonutChart from "../../Components/Charts/Dount";
 
 const Dashboard = () => {
   const [products, setProducts] = useState([]);
@@ -43,7 +45,29 @@ const Dashboard = () => {
 
 
   return (
-    <Card >
+    <>
+
+    <Card>
+    <CardHeader>Show Rates</CardHeader>
+    <CardBody>
+      <BarColumnChart/>
+    </CardBody>
+    </Card>
+    <br></br>
+    <br></br>
+    <br></br>
+    <Card>
+    <CardHeader>Show Quantity </CardHeader>
+    <CardBody>
+      <DonutChart/>
+    </CardBody>
+    </Card>
+
+    <br></br>
+    <br></br>
+    <br></br>
+
+     <Card >
       <CardHeader>All products that in System</CardHeader>
       <CardBody>
         <Table striped size="sm">
@@ -63,7 +87,7 @@ const Dashboard = () => {
                 <th scope="row">{index + 1}</th>
                 <td>{product.productTittle}</td>
                 <td>{product.productPrice}</td>
-                <td>{product.productDescription}</td>
+                <td>{product.productDescription.substring(0,12)}...</td>
                 <td>{product.count}</td>
                 <td>
                   {product.imageName ? (
@@ -81,12 +105,12 @@ const Dashboard = () => {
                   )}
                 </td>
                 <td>
-              <Button size="sm" color="warning" onClick={() => handleEdit(product.id)} >
+              {/* <Button size="lg" color="warning" onClick={() => handleEdit(product.id)} >
                 <i className="fas fa-edit"></i>
               </Button>{" "}
-              <Button color="danger" onClick={() => handleDelete(product.id)}>
+              <Button size="lg" color="danger" onClick={() => handleDelete(product.id)}>
                 <i className="fas fa-trash-alt"></i>
-              </Button>
+              </Button> */}
             </td>
               </tr>
             ))}
@@ -107,6 +131,9 @@ const Dashboard = () => {
       />
       </CardBody>
     </Card>
+    
+    </>
+   
   );
 };
 

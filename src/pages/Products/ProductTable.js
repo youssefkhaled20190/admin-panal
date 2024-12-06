@@ -75,7 +75,7 @@ const ProductTable = () => {
                 <th scope="row">{index + 1}</th>
                 <td>{product.productTittle}</td>
                 <td>{product.productPrice}</td>
-                <td>{product.productDescription}</td>
+                <td>{product.productDescription.substring(0,12)}...</td>
                 <td>{product.count}</td>
                 <td>
                   {product.imageName ? (
@@ -94,13 +94,14 @@ const ProductTable = () => {
                 </td>
                 <td>
                   <Button
-                    size="sm"
+                    size="lg"
                     color="warning"
                     onClick={() => handleEdit(product.id)}
                   >
                     <i className="fas fa-edit"></i>
                   </Button>{" "}
                   <Button
+                  size="lg"
                     color="danger"
                     onClick={() => DeleteProduct(product.id)}
                   >
